@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        <h5 class="mb-0">🧾 Final Bill</h5>
+      </div>
+      <div class="card-body">
+        <p><strong>Date:</strong> {{ date }}</p>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cart">
+              <td>{{ item.name }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>₹{{ item.price }}</td>
+              <td>₹{{ item.price * item.quantity }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <div class="text-end mt-3">
+          <h5>Total Amount: ₹{{ total }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  

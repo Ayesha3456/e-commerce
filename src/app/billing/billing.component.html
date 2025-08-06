@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">🧾 Billing Summary</h5>
+      </div>
+      <div class="card-body">
+        <div *ngIf="cart.length > 0; else emptyCart">
+          <table class="table table-bordered table-hover">
+            <thead class="table-light">
+              <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cart">
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>₹{{ item.price }}</td>
+                <td>₹{{ item.price * item.quantity }}</td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <div class="text-end">
+            <h5>Total Amount: ₹{{ total }}</h5>
+          </div>
+  
+          <div class="d-flex justify-content-end mt-3">
+            <button class="btn btn-success me-2" (click)="confirmPurchase()">Confirm Purchase</button>
+            <button class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
+          </div>
+        </div>
+  
+        <ng-template #emptyCart>
+          <p class="text-muted text-center">Your cart is empty. Add items to proceed with billing.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  
