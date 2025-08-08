@@ -1,4 +1,16 @@
 <div class="container mt-4">
+  <!-- Cart Icon -->
+  <div class="d-flex justify-content-end mb-3">
+    <div class="position-relative">
+      <a [routerLink]="['/billing']" class="btn btn-outline-secondary position-relative">
+        🛒
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{ totalItems() }}
+        </span>
+      </a>
+    </div>
+  </div>
+
   <!-- Search + Sort -->
   <div class="row mb-4">
     <div class="col-md-9">

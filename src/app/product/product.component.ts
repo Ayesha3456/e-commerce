@@ -38,13 +38,17 @@ export class ProductComponent {
   }
 
   addToCart(product: Product) {
+    if (!product.quantity || product.quantity < 1) {
+      product.quantity = 1; // Default to 1 if invalid
+    }
+
     const existing = this.cart.find(p => p.id === product.id);
     if (existing) {
       existing.quantity += product.quantity;
     } else {
       this.cart.push({ ...product });
     }
-    localStorage.setItem('cart', JSON.stringify(this.cart));
+    this.saveCart();
   }
 
   removeFromCart(item: Product) {
